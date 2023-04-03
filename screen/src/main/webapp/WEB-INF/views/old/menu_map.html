@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="body"></div>
+<div class="all">
+	<table>
+		<tr>
+		  <th>시스템명</th>
+		  <th>1dept</th>
+		  <th>2dept</th>
+		  <th>3dept</th>
+		  <th>비고</th>
+		</tr>
+		<tr>
+			<th rowspan ='16'>클라이언트 시스템</th>
+			<th><a href="main.jsp">메인</a></th>
+			<th></th>
+			<th></th>
+			<th>정실(전체초안,top내비바 수정,슬라이드 수정),정후(슬라이드 초안,top내비바 초안)</th>
+		</tr>
+		<tr>
+			<th rowspan ='3'><a href="signup.jsp">회원가입</a></th>
+			<th>등록</th>
+			<th></th>
+			<th rowspan ='3'>정실</th>
+		</tr>
+		<tr>
+			<th>수정</th>
+			<th></th>
+
+		</tr>
+		
+		<tr>
+			<th>탈퇴</th>
+			<th></th>
+		</tr>			
+		
+		<tr>
+			<th><a href="login.jsp">로그인&로그아웃</a></th>
+			<th></th>
+			<th></th>
+			<th>정실</th>
+		</tr>
+		<tr>
+			<th><a href="search.jsp">상세검색</a></th>
+			<th>검색결과출력</th>
+			<th></th>
+			<th>정후(초안),정실(1차수정->css)</th>
+		</tr>
+		<tr>
+			<th rowspan ='3'><a href="rating.jsp">평가하기</a></th>
+			<th>등록</th>
+			<th></th>
+			<th rowspan ='3'>정실,정후(누르면 댓글달수있는 팝업창만구현)</th>
+		</tr>
+		<tr>
+			<th>수정</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>삭제</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th rowspan ='7'><a href="mypage.jsp">마이페이지</a></th>
+			<th><a href="preference.jsp">취향분석</a></th>
+			<th></th>
+			<th>정후(초안),<p>정실(1차수정->div구획수정,선호태그 애니메이션추가,<p>평점 그래프 수정,가장많이 이용하는 플랫폼섹션 추가)</th>
+		</tr>
+		<tr>
+			<th rowspan ='2'><a href="checkArt.jsp">평가한 작품보기</a></th>
+			<th>별점별 작품검색</th>
+			<th rowspan ='2'>정후</th>
+		</tr>
+		<tr>
+			<th>등록순작품검색</th>
+		</tr>
+		<tr>
+			<th rowspan ='2'><a href="friend.jsp">친구관리</a></th>
+			<th>등록</th>
+			<th rowspan ='2'>정후</th>
+		</tr>
+		<tr>
+			<th>삭제</th>
+		</tr>
+		<tr>
+			<th>회원정보수정</th>
+			<th></th>
+			<th>-</th>
+		</tr>
+		<tr>
+			<th>문의현황</th>
+			<th></th>
+			<th>-</th>
+		</tr>
+		<tr>
+			<th rowspan ='17' style="border-top:solid 3px black">관리자 시스템</th>
+			<th style="border-top:solid 3px black"><a href="manage/manage_login.jsp">로그인</a></th>
+			<th style="border-top:solid 3px black"></th>
+			<th style="border-top:solid 3px black"></th>
+			<th rowspan ='17' style="border-top:solid 3px black">정실</th>
+		</tr>
+		<tr>
+			<th rowspan ='4'><a href="manage/manage_members.jsp">멤버관리</a></th>
+			<th>등록</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>조회</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>수정</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>삭제</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th rowspan ='8'>작품관리</th>
+			<th rowspan ='4'><a href="manage/manage_arts.jsp">작품목록</a></th>
+			<th>등록</th>
+		</tr>
+		<tr>
+			<th>조회</th>
+		</tr>
+		<tr>
+			<th>수정</th>
+		</tr>
+		<tr>
+			<th>삭제</th>
+		</tr>
+		<tr>
+			<th rowspan ='4'><a href="manage/manage_arts_request.jsp">작품등록 요청</a></th>
+			<th>등록</th>
+		</tr>
+		
+		<tr>
+			<th>조회</th>
+		</tr>
+		
+		<tr>
+			<th>수정</th>
+		</tr>
+		
+		<tr>
+			<th>삭제</th>
+		</tr>
+		
+		<tr>
+			<th rowspan ='4'><a href="manage/manage_tags.jsp">태그관리</a></th>
+			<th>등록</th>
+			<th></th>
+		</tr>
+		
+		<tr>
+			<th>조회</th>
+			<th></th>
+		</tr>
+		
+		<tr>
+			<th>수정</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>삭제</th>
+			<th></th>
+		</tr>
+	</table>
+
+</div>
+</body>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+a:link, a:visited{
+color: black;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccd7e8;
+  width:100%;
+
+}
+.all{
+width:100%
+}
+
+
+table {
+  border-collapse: collapse;
+  background-color: white;
+  overflow: hidden;
+  width: 80%;
+  border-radius: 10px;
+  margin: 40px;
+
+}
+
+th, td {
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+    border: 1px solid black;
+}
+
+
+</style>
+</html>

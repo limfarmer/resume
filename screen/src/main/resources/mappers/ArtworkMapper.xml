@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+  
+  <mapper namespace="com.achu.mapper.ArtworkMapper"> <!-- 인터페이스 만든위치를 똑같이 지정해줘야함 -->
+   
+	  <select id="getArtwork">
+	  		SELECT * FROM v_art_info_tag 
+	  		WHERE seqno = #{ano}
+	  </select>
+	  
+	  <!-- <select id ="searchDeatil">
+		  	SELECT *
+		  	FROM v_art_info_tag
+		  	WHERE name = ${tagName}
+	  	<if test='tag != null'>
+	  		and name = ${tagName} 
+	  	</if>
+	  </select> -->
+	  
+	<update id="setImageLink">
+		UPDATE image 
+		SET link_address=#{imageLink}
+		WHERE art_seqno=#{seqno}
+	</update>
+	
+	<update id="setImageFile">
+		UPDATE image 
+		SET route=#{image.route}, save_name=#{image.saveName}, file_type=#{image.fileType},file_size=#{image.fileSize}
+		WHERE art_seqno=#{seqno}
+	</update>
+	
+	<select id="getRatingList" resultType="Artwork">
+		  SELECT seqno, name, author, image_route 
+		FROM v_art_info
+		WHERE seqno in(
+		    SELECT seqno FROM v_art_info
+		    MINUS
+		    SELECT seqno FROM user_rating_record WHERE id=#{id})
+		order by dbms_random.value
+	</select>
+	
+	<update id="modify" parameterType="java.util.HashMap">
+		UPDATE artwork
+		SET ${field}=#{value}
+		WHERE seqno=#{seqno}
+	</update>
+	
+	<select id ="myPageArtRating" resultType="Artwork">
+		select u.id,  r.wdate, r.art_seqno ,a.name, a.link_address, a.detail, a.avg_rating
+		from  user_tag_record u, rating r, v_art_info_tag a
+		where u.id = r.id and u.id=#{id} and r.art_seqno = a.seqno
+		group by u.id,  r.wdate, r.art_seqno ,a.name, a.link_address, a.detail, a.avg_rating
+		order by a.avg_rating desc
+	</select>
+	
+	<select id ="myPageArtWdate" resultType="Artwork">
+		select u.id,  r.wdate, r.art_seqno ,a.name, a.link_address, a.detail, a.avg_rating
+		from  user_tag_record u, rating r, v_art_info_tag a
+		where u.id = r.id and u.id=#{id} and r.art_seqno = a.seqno
+		group by u.id,  r.wdate, r.art_seqno ,a.name, a.link_address, a.detail, a.avg_rating
+		order by r.wdate desc
+	</select>
+	
+	<select id ="clickTag" resultType="Artwork">
+		select i.name ,i.seqno , i.author , i.admit , i.tag_name , i.tag_seqno , i.platform , i.rest , i.week , i.detail, i.url , i.avg_rating,
+			   i.cnt, i.image_route, i.link_address,a.genre ,a.tags
+		from   v_art_info_tag i ,
+                (SELECT distinct name ,
+	            listagg(tag_name, '# ') within group(order by name) as tags,
+                listagg(genre, '# ') within group(order by name) as genre
+	            FROM v_art_info_tag
+	            group by name) a
+		where  tag_seqno = #{seqno} and a.name =i.name
+		group  by i.name ,i.seqno , i.author , i.admit , i.tag_name , i.tag_seqno , i.platform , i.rest , i.week , i.detail, i.url , i.avg_rating,
+			   i.cnt, i.image_route, i.link_address ,a.genre,a.tags
+               
+	</select>
+ </mapper>

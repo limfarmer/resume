@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace ="com.achu.mapper.SearchMapper">
+	<resultMap id="SearchMap" type="Artwork">
+	</resultMap>
+	<select  id ="searchResult" resultType="Artwork">
+		SELECT distinct i.name ,i.seqno,i.author, i.admit,i.platform,i.rest,i.week,i.detail,i.url,a.genre,
+			i.avg_rating,i.image_route,i.link_address,i.cnt, a.tags
+		FROM v_art_info_tag i
+	        ,(SELECT distinct name ,
+	            listagg(tag_name, '# ') within group(order by name) as tags,
+	            listagg(genre, '# ') within group(order by name) as genre
+	            FROM v_art_info_tag
+	            group by name
+	           ) a
+		WHERE i.name LIKE '%'||#{name}||'%'  and i.name =a.name
+		<!-- <if test="#{seqno}!= null">
+			and tag_seqno = #{seqno}
+		</if> -->
+	</select>
+	
+	<select id="getTagArtList" resultType="Artwork">
+		select i.name ,i.seqno , i.author , i.admit , i.tag_name , i.tag_seqno , i.platform , i.rest , i.week , i.detail, i.url , i.avg_rating,
+			   i.cnt, i.image_route, i.link_address,a.genre ,a.tags
+		from   v_art_info_tag i ,
+                (SELECT distinct name ,
+	            listagg(tag_name, '# ') within group(order by name) as tags,
+                listagg(genre, '# ') within group(order by name) as genre
+	            FROM v_art_info_tag
+	            group by name) a
+		where  tag_seqno = #{tag_name} and a.name =i.name
+		group  by i.name ,i.seqno , i.author , i.admit , i.tag_name , i.tag_seqno , i.platform , i.rest , i.week , i.detail, i.url , i.avg_rating,
+			   i.cnt, i.image_route, i.link_address ,a.genre,a.tags
+               
+
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+.artDetailFrame{
+	display : flex;
+}
+
+.artDetail{/* 작품 정보*/
+	position: fixed;
+	width:20%;
+}
+
+.artDetail div, .artDetail a {
+	padding:10px;
+}
+
+.detailImg{
+}
+
+.bttn-bordered{margin:0;padding:0;border-width:0;border-color:transparent;font-weight:400;cursor:pointer;position:relative;font-size:20px;font-family:inherit;padding:5px 12px;overflow:hidden;border:1px solid hsla(0,0%,100%,.4);border-radius:4px;background:transparent;color:#fff;-webkit-transition:all .3s cubic-bezier(.02,.01,.47,1);transition:all .3s cubic-bezier(.02,.01,.47,1)}
+
+.bttn-xs {
+	display:block;
+	color: #1d89ff;
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	border-color: transparent;
+	background: transparent;
+	font-weight: 400;
+	cursor: pointer;
+	position: relative;
+	font-family: inherit;
+	padding: 3px 8px;
+	font-size: 12px;
+}
+
+.replyArrange{
+	display:flex;
+	justify-content: flex-end;
+	width:100%;
+}
+
+.replyFrame{
+	display:flex;
+	flex-flow: column;
+	width:60%;
+}
+
+.replyCard {
+  background-color: white;
+  padding: 30px;
+  width:100%;
+  box-sizing:content-box;
+}
+
+.replyHead{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}

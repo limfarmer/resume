@@ -1,0 +1,493 @@
+@charset "UTF-8";
+
+* {
+	box-sizing : border-box;
+	text-decoration:none;
+}
+
+body {
+	font-family: Arial;
+	padding: 10px;
+	background: none;	
+}
+
+a{
+	color:black;
+}
+
+.tag{
+	color: #0067a3;
+	margin-right:5px;
+	display:inline-block;
+}
+
+.tag:before{
+	content:"#";
+}
+
+.overflow-hidden{
+	overflow:hidden;
+}
+
+.clickBox:hover{
+	cursor:pointer;
+}
+
+.card .tag{
+	font-size:12px;
+}
+
+.card h5{
+	display:inline;
+	margin-right:5px;
+	margin-bottom:5px;
+}
+
+/* 상단 네비바 고정 */
+.header {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	text-align: center;
+	/* 이 밑 수정 */
+	position: sticky;
+	top: 0px;
+	background-color: rgb(247, 249, 250);
+	margin: -25px;
+	height: 50px;
+	z-index: 2;
+}
+
+.header a {
+	/* padding-left:10px; */
+}
+
+.field-container {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	width: 100%;
+	height: 40px;
+}
+
+.icons-container {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 35px;
+	height: 35px;
+	overflow: hidden;
+}
+
+.icon-close {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 75%;
+	height: 75%;
+	opacity: 0;
+	cursor: pointer;
+	transform: translateX(-200%);
+	border-radius: 50%;
+	transition: opacity 0.25s ease, transform 0.43s
+		cubic-bezier(0.694, 0.048, 0.335, 1);
+}
+
+.icon-close:before {
+	content: "";
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	border: 2px solid transparent;
+	border-color: #6078ea;
+	border-left-color: #6078ea;
+	border-bottom-color: #6078ea;
+	transition: opacity 0.2s ease;
+}
+
+.icon-close .x-up {
+	position: relative;
+	width: 100%;
+	height: 50%;
+}
+
+.icon-close .x-up:before {
+	content: "";
+	position: absolute;
+	bottom: 2px;
+	left: 3px;
+	width: 50%;
+	height: 2px;
+	background-color: #6078ea;
+	transform: rotate(45deg);
+}
+
+.icon-close .x-up:after {
+	content: "";
+	position: absolute;
+	bottom: 2px;
+	right: 0px;
+	width: 50%;
+	height: 2px;
+	background-color: #6078ea;
+	transform: rotate(-45deg);
+}
+
+.icon-close .x-down {
+	position: relative;
+	width: 100%;
+	height: 50%;
+}
+
+.icon-close .x-down:before {
+	content: "";
+	position: absolute;
+	top: 5px;
+	left: 4px;
+	width: 50%;
+	height: 2px;
+	background-color: #6078ea;
+	transform: rotate(-45deg);
+}
+
+.icon-close .x-down:after {
+	content: "";
+	position: absolute;
+	top: 5px;
+	right: 1px;
+	width: 50%;
+	height: 2px;
+	background-color: #6078ea;
+	transform: rotate(45deg);
+}
+
+.is-type .icon-close:before {
+	opacity: 1;
+	-webkit-animation: spin 0.85s infinite;
+	animation: spin 0.85s infinite;
+}
+
+.is-type .icon-close .x-up:before, .is-type .icon-close .x-up:after {
+	-webkit-animation: color-1 0.85s infinite;
+	animation: color-1 0.85s infinite;
+}
+
+.is-type .icon-close .x-up:after {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s;
+}
+
+.is-type .icon-close .x-down:before, .is-type .icon-close .x-down:after
+	{
+	-webkit-animation: color-1 0.85s infinite;
+	animation: color-1 0.85s infinite;
+}
+
+.is-type .icon-close .x-down:before {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+
+.is-type .icon-close .x-down:after {
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+}
+
+.icon-search {
+	position: relative;
+	top: 5px;
+	left: 8px;
+	width: 50%;
+	height: 50%;
+	opacity: 1;
+	border-radius: 50%;
+	border: 3px solid #c7d0f8;
+	transition: opacity 0.25s ease, transform 0.43s
+		cubic-bezier(0.694, 0.048, 0.335, 1);
+}
+
+.icon-search:after {
+	content: "";
+	position: absolute;
+	bottom: -9px;
+	right: -2px;
+	width: 4px;
+	border-radius: 3px;
+	transform: rotate(-45deg);
+	height: 10px;
+	background-color: #c7d0f8;
+}
+
+/* 상세검색창 */
+.field {
+	border: 0;
+	width: 100%;
+	padding: 10px 20px;
+	background: white;
+	border-radius: 3px;
+	box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
+	transition: all 0.4s ease;
+}
+
+/* 로그인창 사이즈 수정 */
+.sizeOfSearchBar{
+	width:450px;
+	margin-left:5%;
+}
+.field:focus {
+  outline: none;
+  box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
+}
+.field:focus + .icons-container .icon-close {
+  opacity: 1;
+  transform: translateX(0);
+}
+.field:focus + .icons-container .icon-search {
+  opacity: 0;
+  transform: translateX(200%);
+}
+
+/* 상세검색 버튼 구현 */
+.btn {
+	display: inline-block;
+	/* padding: 6px 6px ; */
+	padding-top: 6px;
+	/* border: 2px solid #ddd; */
+	color: #ddd;
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	/* margin: 15px 5px 0 5px; */
+	transition: all .2s;
+	min-width: 70px;
+	text-align: center;
+	font-size: 14px;
+}
+
+.btn.primary {
+	border-color: #3498db;
+	color: #3498db;
+}
+
+/* Style the  navigation bar */
+.nav {
+	overflow: hidden;
+	background-color: none;
+}
+
+/* Style the nav links */
+.nav a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	margin-bottom:10px;
+}
+
+/* Change color on hover */
+.nav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+/* 수정) 마진탑 100px */
+.center{
+	display:flex;
+	justify-content: center;
+	margin: 100px;
+}
+
+.session{
+	display:flex;
+	width:1000px;
+	flex-flow: column wrap;
+	justify-content: center;
+}
+
+.sessrion a{
+	text-decoration:none;
+	color:black;
+}
+
+.banner{
+	display:block;
+	width:100%;
+	margin-bottom: 30px;
+}
+
+.row{
+	display:flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Fake image */
+.slideImg {
+	background-color: #aaa;
+	width: 100%;
+	padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+	width:250px;
+	background-color: white;
+	padding: 20px;
+	margin-top: 10px;
+}
+
+.mainImage {
+	width:100%;
+}
+
+.minicard {
+	width:200px;
+	background-color: white;
+	padding: 20px;
+	margin-top: 10px;
+}
+
+.minicard p{
+	font-weight:bold;
+}
+
+/* Footer */
+.footer {
+	padding: 20px;
+	text-align: center;
+	background: #ddd;
+	margin-top: 20px;
+}
+
+.footer a{
+	text-decoration:none;
+	color:black;
+	margin:10px;
+}
+
+
+
+/* 검색창  */
+.searchBox{
+	margin-top: 100px;
+
+}
+/* 메인 큰 베너 */
+.content { /*컨텐츠 넓이지정*/
+	position: relative;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	width: 1000px;
+	z-index: 1;
+	margin-bottom:100px;
+}
+
+.slides { /*슬라이드 아이템이 나올 뼈대 지정*/
+	width: 960px;
+	height: 300px;
+	position: relative;
+}
+
+.slide_item { /*슬라이드 아이템을 absolute로 겹쳐놓고 투명하게 하기*/
+	position: absolute;
+	width: 100%;
+	height: 300px;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+.ontheSlide { /*현재 아이템에 붙여줄 클래스*/
+	opacity: 1;
+	transition: all 0.3s;
+}
+
+.ontheThumbnail { /*현재 썸네일에 붙여줄 클래스*/
+	border: 1px dashed red;
+}
+
+.nextButton, .prevButton { /*다음,이전 버튼을 드래그되지 않게 방지해주기*/
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
+.nextButton { /*다음 버튼을 오른쪽으로 보내기*/
+	float: right;
+}
+
+.prevButton { /*왼쪽 버튼을 왼쪽으로 보내기*/
+	float: left;
+}
+
+.Thumbnail { /*썸네일 아이템을 감쌀 뼈대*/
+	display: flex;
+	flex-flow: row wrap;
+	width: 80%;
+	height: 50px;
+	position: absolute;
+	bottom: 0px;
+	justify-content:center;
+}
+/*   background-image: url(""); */
+.slide_item:nth-of-type(1), .thumbnail_item:nth-of-type(1) {
+	/*예제를 위해 썸네일 아이템들의 색깔을 구분*/
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	background-size: 100%,100%;
+}
+
+.slide_item:nth-of-type(2), .thumbnail_item:nth-of-type(2) {
+	background: blue;
+}
+
+.slide_item:nth-of-type(3), .thumbnail_item:nth-of-type(3) {
+	background: red;
+}
+
+.slide_item:nth-of-type(4), .thumbnail_item:nth-of-type(4) {
+	background: orange;
+}
+
+.slide_item:nth-of-type(5), .thumbnail_item:nth-of-type(5) {
+	background: black;
+}
+
+.slide_item:nth-of-type(6), .thumbnail_item:nth-of-type(6) {
+	background: green;
+}
+
+.thumbnail_item { /*썸네일 아이템의 길이 설정*/
+	width: 98px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on  of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+	.leftcolumn, .rightcolumn {
+		width: 100%;
+		padding: 0;
+	}
+}
+
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on  of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+	.nav a {
+		float: none;
+		width: 100%;
+	}
+}

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost:8080/screen/rating.jsp -->
+<html class="hydrated"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}</style>
+<!-- 나중에 web으로 옮기기 -->
+<script type="module" src="./평가하기_files/ionicons.esm.js.다운로드"></script>
+<script nomodule="" src="./평가하기_files/ionicons.js.다운로드"></script>
+<script>
+$(window).scroll(function() {
+    
+    
+    var scrolltop = $(document).scrollTop();
+    var height = $(document).height();
+    var height_win = $(window).height();
+    
+    
+ if (Math.round( $(window).scrollTop()) == $(document).height() - $(window).height()) {
+    alert('d');
+ }
+}
+</script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./평가하기_files/bootstrap.css">
+<link rel="stylesheet" href="./평가하기_files/web.css">
+<link rel="stylesheet" href="./평가하기_files/rating.css">
+<link rel="stylesheet" href="./평가하기_files/searchDetailCss.css">
+<link rel="stylesheet" href="./평가하기_files/detail.css">
+<link rel="stylesheet" href="./평가하기_files/mypage.css">
+<link rel="stylesheet" href="./평가하기_files/preferenceStyle.css">
+<link rel="stylesheet" href="./평가하기_files/checkArtCss.css">
+<link rel="stylesheet" href="./평가하기_files/login.css">
+<link rel="stylesheet" href="./평가하기_files/signUp.css">
+<link rel="stylesheet" type="text/css" href="./평가하기_files/all.min.css">
+<link rel="stylesheet" href="./평가하기_files/friendCss.css">
+<title>평가하기</title>
+</head>
+<body>
+
+
+<div class="header">
+	<input type="hidden" id="loginStat" value="null">
+	<div class="topNavigation">
+		<a href="http://localhost:8080/screen/main.jsp"><img src="./평가하기_files/logo.png"></a>
+	</div>
+	<div style="display:flex">
+	<div class="sizeOfSearchBar">
+		<fieldset class="field-container">
+			<input type="text" placeholder="Search..." class="field">
+		
+			<div class="icons-container">
+				<div class="icon-search"></div>
+				<div class="icon-close">
+					<div class="x-up"></div>
+					<div class="x-down"></div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+		<a class="btn primary" href="http://localhost:8080/screen/search.jsp" style="margin-left:10px;"> 상세검색</a>
+	</div>
+	<div>
+		<a class="btn primary" href="http://localhost:8080/screen/rating.jsp" id="rating"> 평가하기 </a>
+		 
+	
+			<a class="btn primary" href="http://localhost:8080/screen/login.jsp" id="login"> 로그인</a>
+			<a class="btn primary" href="http://localhost:8080/screen/signup.jsp" id="member">회원가입</a>
+		
+	</div>
+</div>
+
+
+<div class="center">
+<div class="session" id="document">
+<h2> 하여튼 뭔가 간지나고 평가를 독려하는 문구 </h2>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+    
+
+<div class="ratingFrame">
+
+	<div class="ratingImgFrame">
+		<src img="images/jojo.jpg" class="ratingImg">
+	</src></div>
+	<div class="ratingContent">
+		<div class="ratingReply">
+			<h3 class="ratingTitle">작품제목</h3>
+			<button onclick="default1()"  id="replyModal">
+				<ion-icon name="ellipsis-vertical-outline" role="img" class="md hydrated" aria-label="ellipsis vertical outline"></ion-icon>
+			</button>
+		</div>
+		<h4 class="ratingArtist">작가명</h4>
+		<form name="ratingform" class="ratingform" method="post" action="http://localhost:8080/screen/save">
+			<fieldset>
+				<input type="radio" name="rating" value="5" id="rate1">
+				<label for="rate1">⭐</label>
+				<input type="radio" name="rating" value="4" id="rate2">
+				<label for="rate2">⭐</label>
+				<input type="radio" name="rating" value="3" id="rate3">
+				<label for="rate3">⭐</label>
+				<input type="radio" name="rating" value="2" id="rate4">
+				<label for="rate4">⭐</label>
+				<input type="radio" name="rating" value="1" id="rate5">
+				<label for="rate5">⭐</label>
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div id="second"></div>
+</div>
+</div>
+
+
+<div class="footer">
+	<a href="http://localhost:8080/screen/rating.jsp#">공지사항</a>
+	<a href="http://localhost:8080/screen/rating.jsp#">서비스소개</a>
+	<a href="http://localhost:8080/screen/rating.jsp#">고객센터</a>
+	<a href="http://localhost:8080/screen/rating.jsp#">FUSH 가이드</a>
+	<a href="http://localhost:8080/screen/rating.jsp#">이용약관</a>
+	<a href="http://localhost:8080/screen/rating.jsp#">개인정보 처리방침</a>
+</div>
+
+
+<div id="reply">
+	<div class="reply_content"> 
+		<div class="replyPopup">
+			<form method="post" action="http://localhost:8080/screen/rating.jsp#">
+				<input type="text" name="serch" placeholder="댓글을 달아주세요.(50자 이내)" maxlength="50" required="">
+				<input type="submit" value="댓글달기">	
+			</form>
+		</div>
+		<div id="close_reply">
+			<a href="javascript:reply_close()">닫기</a>
+		</div>
+	</div>
+</div>
+
+<script>
+ function default1(){
+	 document.getElementById("reply").style.display="block";
+ }	
+ function reply_close(){
+	 document.getElementById("reply").style.display="none";
+ } 
+</script>
+
+
+
+
+</body></html>

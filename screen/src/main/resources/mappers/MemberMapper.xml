@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 인터페이스 이름(com.achu.mapper.MemberMapper)과 xml의 namespace속성값이 일치 -->
+
+<mapper namespace="com.achu.mapper.MemberMapper">
+	<!-- resultMap: 복잡한 결과 매핑을 간편하게 만들어주기 위해 만들어진 태그 -->
+	<!-- https://mybatis.org/mybatis-3/ko/sqlmap-xml.html#Result_Maps -->
+	<!-- member는...필드가 똑같긴한데 일단 테스트용... -->
+	<resultMap id="MemberMap" type="Member">
+		<!-- id 태그와 result 태그의 차이점: 구분자 프로퍼티...? primary key랑 비슷한 개념인듯 -->
+		<!-- id 태그를 쓰는 이유? 성능 문제라는디? 중첩데이터와 조인매핑에서 성능향상? -->
+		<!-- property : 자바 객체에서의 필드명 -->
+		<!-- column : 데이터베이스에서의 필드명 (alias가 있다면 그거)-->
+		<!-- javaType : 자바 객체에서의 타입 -->
+		<!-- jdbcType : jdbc(database가져오기 위해서 jdbc를 쓰니까) 타입 -->
+		<!-- 어지간히 자동형변환되는거 같긴한데...안된다면? -->
+		<id property="id" column="id" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="gender" column="gender" javaType="String" jdbcType="CHAR"/>
+		<result property="email" column="email" />
+		<result property="birth" column="birth"  javaType="String" jdbcType="DATE"/>
+		<result property="wdate" column="wdate"  javaType="String" jdbcType="DATE"/>
+		<result property="isdel" column="isdel"  javaType="String" jdbcType="CHAR"/>
+		<result property="delDate" column="deldate" javaType="String" jdbcType="DATE"/>
+	</resultMap>
+	<select id="getById" resultType="Member">
+		SELECT * FROM member WHERE id=#{id}
+	</select>
+	
+	<update id="delete">
+		<![CDATA[
+			UPDATE member SET name='탈퇴처리',email='탈퇴처리', isdel='Y' WHERE deldate<=ADD_MONTHS(SYSDATE,-1)
+		]]>
+	</update>
+	
+	<!-- alias는 요런 방식도 가능 -->
+	<!-- <select id="getById" resultType="MemberMap">
+		select
+		id as "id",
+		name as "name",
+		from member
+		where id = #{id}
+	</select>  -->
+
+</mapper>

@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.signUpForm {
+	max-width: 680px;
+	margin-top: 80px;
+	padding: 100px;
+	background: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+}
+
+.signUpForm input{
+	display:block;
+	margin: 10px  0px 20px  0px;
+	height:30px;
+}
+
+.signUpForm label{
+	margin-bottom:10px;
+}
+
+.signUpForm div input {
+	box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+	background-color:#007dc1;
+	border-radius:3px;
+	border:1px solid #124d77;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+}
+
+.signUpForm .btn {
+	border: 3px solid #1a1a1a;
+	display: inline-block;
+	padding: 10px;
+	position: relative;
+	text-align: center;
+	transition: background 600ms ease, color 600ms ease;
+}
+
+.signUpForm input[type=radio].toggle {
+	display: none;
+}
+
+.signUpForm input[type=radio].toggle+label {
+	cursor: pointer;
+	min-width: 60px;
+}
+
+.signUpForm input[type=radio].toggle+label:hover {
+	background: none;
+	color: #1a1a1a;
+}
+
+.signUpForm input[type=radio].toggle+label:after {
+	background: #1a1a1a;
+	content: "";
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+	width: 100%;
+	z-index: -1;
+}
+
+.signUpForm input[type=radio].toggle.toggle-left+label {
+	border-right: 0;
+}
+
+.signUpForm input[type=radio].toggle.toggle-left+label:after {
+	left: 100%;
+}
+
+.signUpForm input[type=radio].toggle.toggle-right+label {
+	margin-left: -5px;
+}
+
+.signUpForm input[type=radio].toggle.toggle-right+label:after {
+	left: -100%;
+}
+
+.signUpForm input[type=radio].toggle:checked+label {
+	cursor: default;
+	color: #fff;
+	transition: color 200ms;
+	background: #1a1a1a;
+}
+
+.signUpForm input[type=radio].toggle:checked+label:after {
+	left: 0;
+}

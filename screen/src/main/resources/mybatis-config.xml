@@ -1,0 +1,22 @@
+<!DOCTYPE configuration   
+        PUBLIC "-//mybatis.org/DTD Config 3.0/EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">  <!-- XML 문서의 유효성 체크를 위해 필요 -->
+
+<!-- 간단한 작성을 위한 alias -->
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="Artwork" type="com.achu.dto.Artwork" />
+		<typeAlias alias="Banner" type="com.achu.dto.BannerImage" />
+		<typeAlias alias="File" type="com.achu.dto.File" />
+		<typeAlias alias="Image" type="com.achu.dto.Image" />
+		<typeAlias alias="Member" type="com.achu.dto.Member" />
+		<typeAlias alias="Reply" type="com.achu.dto.Reply" />
+		<typeAlias alias="Tag" type="com.achu.dto.Tag" />
+		<typeAlias alias="UserTag" type="com.achu.dto.UserTag" />
+	</typeAliases>
+	
+</configuration>

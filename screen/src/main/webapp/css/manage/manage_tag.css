@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.tag_table, .tag_modify{
+	font-size:15px;
+}
+
+.tag_top, .tag_mid, .drag-container{
+	/* display: inline-block;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	font-size:15px; */
+}
+
+table {
+	
+} 
+
+th, td {
+}
+
+.top_tag, .mid_tag {
+	width:10%;
+}
+
+.tag{
+	margin-top:5px;
+}
+
+.tag:before{
+	content:"#";
+}
+
+.tag_modifyForm{
+	display:flex;
+}
+
+.modifyModal{
+	position: fixed;
+	top: 30%;
+	left: 50%;
+	display: none;
+	/* width: 50%;
+	height: 0; */
+	padding:1%;
+	transform: translate(50%, 50%);
+	overflow: hidden;
+	outline: 0;
+	background:white;
+	z-index:10;
+	border-radius: 0.3rem;
+	flex-direction: column;
+}
+
+.modalTitle{
+	display:flex;
+	flex-direction: row;
+}
+
+.modifyForm {
+	display: grid;
+	justify-content: space-evenly;
+}

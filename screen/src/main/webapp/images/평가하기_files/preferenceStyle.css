@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+.preference{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.oneline{ /* 제일위에 한줄평 */
+	border-bottom: solid 1px gray;
+	margin-bottom:20px;
+}
+
+.preference h3{
+	font-size: 25px;
+}
+
+.DetailBoard{/* 취향분석별 상자css */
+	display: flex;
+	justify-content: space-evenly;
+	width:100%;
+	/* background-color:rgb(219, 219, 219); 영역확인용 배경색 삭제*/
+	padding-bottom:30px;
+	margin-bottom:30px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.divideBoard{  /* 각 취향분석상자 안에 구역나누기  */
+	height:100%;
+	text-align: center;
+	display:flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.divideBoard img{
+	width:30px;
+	height:30px;
+	display:block;
+}
+
+.webtoonCount{ /* 카운트하거나 좋아하는태그,그림체의 크기 및 위치설정 */
+	margin:20px;
+	font-size: 30px;
+}
+
+#chartdiv { /* 태그 클라우드 */
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+		"Segoe UI Symbol";
+	width: 100%;
+	height: 350px;
+}
+
+.ranking{ /* 순위매기는 div */
+	width:15%;
+	height:100%;
+	float:left;
+}
+.ranking p{ /* p태그도 웹툰 제목들이랑 크기 맞추려고 넣음 */
+	height:30px;
+	margin:20px;
+}
+
+.rankingTitle{ /* 높게 평한 웹툰 이름 */
+	justify-content: space-between;
+	text-align: center;
+	width:120px;
+	height:30px;
+	margin:20px;
+}
+
+/* 시상대 관련은 좀 더 생각해보기로 
+
+.podium1{ 순위매기는 div
+	background-color:white;
+	width:20%;
+	height:60%;
+	float:left;
+	border: solid 1px black;
+}
+.podium2{ 순위매기는 div
+	background-color:white;
+	width:20%;
+	height:30%;
+	float:left;
+	border: solid 1px black;
+}
+.podium3{ 순위매기는 div
+	background-color:white;
+	width:20%;
+	height:40%;
+	float:left;
+	border: solid 1px black;
+}
+.DetailBoard1{ 시상대용 클래스 따로만듬
+	display: flex;
+	width:100%;
+	height:250px;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: flex-end;
+	background-color:rgb(219, 219, 219);
+}
+
+ */
+
+

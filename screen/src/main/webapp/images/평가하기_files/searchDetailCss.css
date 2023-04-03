@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+/* DivTable.com */
+/* 기본 폰트 사이즈 */
+.minimalistBlack {
+	font-size: 14px;
+}
+
+/* table border & margin-top */
+div.minimalistBlack {
+	/* border: 1px solid #000000; */
+	width: 1000px;
+	text-align: left;
+	border-collapse: collapse;
+	margin-top: 10%;
+}
+
+/* 전체 테이블 display */
+.divTable {
+	display: table;
+}
+
+/* 표 제목줄 → 제목줄 안 써서 죽은 코드 됨... 삭제해 말아...→열제목처리함.*/
+.divTableHeading {
+	display: table-header-group;
+}
+
+/* 제목줄 border-bottom */
+.divTable.minimalistBlack .divTableHeading {
+	border-bottom: 1px solid lightgrey;
+}
+
+/* 제목줄 content text */
+.divTable.minimalistBlack .divTableHead {
+	font-size: 20px;
+	font-weight: bold;
+	color: #000000;
+	text-align: left;
+}
+
+/* 내용물 그룹...? */
+.divTableBody {
+	display: table-row-group;
+}
+
+/* data row */
+.divTableRow {
+	display: table-row;
+}
+
+/* data cell */
+.divTableCell, .divTableHead {
+	display: table-cell;
+}
+
+/* data cell border&padding */
+.divTable.minimalistBlack .divTableCell, .divTable.minimalistBlack .divTableHead
+	{
+	border-bottom: 1px solid lightgrey;
+	padding: 5px 4px;
+}
+
+/* data cell font-size */
+.divTable.minimalistBlack .divTableBody .divTableCell>label {
+	font-size: 20px;
+	color: #0067a3;
+}
+
+.divTable.minimalistBlack .divTableBody .divTableCell>label:before{
+	content: "#";
+}
+
+.divTable.minimalistBlack .divTableBody .divTableCell input[type=checkbox]	{
+	display: none; /* 체크박스 감춤 */
+}
+
+.divTable.minimalistBlack .divTableBody .divTableCell input[type=checkbox]:checked 
+	+ label {
+	text-decoration: underline; /* 마우스 클릭 체크 */
+	font-weight: bold;
+}
+
+/* data foot? */
+.divTableFoot {
+	display: table-footer-group;
+}
+
+/* FootStyle */
+.minimalistBlack .tableFootStyle {
+	font-size: 20px;
+	font-weight: bold;
+	color:grey;
+	border-bottom: 1px solid lightgrey;
+	padding: 5px 4px;
+	display:table-cell;
+}
+
+/* 검색결과창 */
+.searchBoard{
+	width:100%;
+	margin-top:40px;
+}
+
+/* 정렬용 링크 */
+.searchPop {
+	display:flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	padding-bottom: 10px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.searchPop a{
+	padding-left: 5px;
+	text-decoration:none;
+	color:grey;
+}
+
+.searchPop a:after{
+	content:"🔽";
+}
+
+/* 검색결과 블록 */
+.detail{
+	position:relative;
+	text-align:center;
+	display:flex;
+	margin:10px;
+}
+
+/* 이미지 블록 */
+.leftblock {
+	flex: 1;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* 상세정보 블록 */
+.middleblock {
+	flex: 3;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin:20px;
+}
+
+/* 별점 블록 */
+.rightblock {
+	flex: 1;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* 검색결과 이미지 */
+.image{
+	display:flex;
+	position:relative;
+	width:200px;
+	height:200px;
+	padding: 20px;
+	margin: auto;
+	background-color: white;
+	background-image:url("../images/doctor.jpg");
+	background-repeat: no-repeat;
+	background-size:200px,180px;
+}
+
+/* 검색결과 */
+.webtoonName{
+	font-size:20px;
+	font-weight:bold;
+	padding:15px;
+}
+
+.platformDetail{
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.webtoonDetail{
+	text-align: left;
+	margin-bottom: 10px;
+	font-size: 13px;
+}
+
+.genruDetail{
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.authorDetail{
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.middleblock span{
+	font-weight:bold;
+}
+
+.webtoonHashtag{
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.webtoonHashtag a{
+	padding-right:5px;
+}
+
+.star{
+	margin:auto;
+}
+
+/*왜 있는지 모르겠는 테이블 관련...css... 
+tr{
+	display:flex;
+	flex-direction: column;
+	width:1000px;
+	height:200px;
+}
+
+table {
+	display: table;
+	border-collapse: separate;
+	box-sizing: border-box;
+	text-indent: initial;
+	border-spacing: 2px;
+	border-color: grey;
+} */
+
+/*왜 있는지 모르겠는2222 
+.searchCard img{
+	width:200px;
+	height:250px;
+} */
