@@ -139,6 +139,11 @@ $(document).ready(function(){
  
 	<!-- 등록 버튼 -->
     $('#addReplyBtn').on("click",function(e){
+   		var logSess = <%=session.getAttribute("sess_id")%>
+    	if(logSess == null){
+    		alert("로그인 해주세요.");
+    		location.href= '/goLogin';
+    	}
        var comment = document.getElementById("addComment").value;
        console.log("comment 넘어",comment);
        var replyadd = {
