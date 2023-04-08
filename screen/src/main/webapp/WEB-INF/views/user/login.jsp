@@ -6,7 +6,7 @@
 <%@ include file="head.jsp" %>
 <title>메인</title>
 </head>
-<body onload="init()">
+<body onload="init()" class="login-page">
 <%@ include file="header.jsp" %>
 <div class="container-md col-md-9 mt-10">
 <%@ include file="loginForm.jsp" %>

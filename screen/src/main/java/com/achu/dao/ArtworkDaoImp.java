@@ -135,6 +135,7 @@ public class ArtworkDaoImp implements ArtworkDao {
 				while(rs.next()) {
 					Tag tagDto = new Tag();
 					tagDto.setName(rs.getString("name"));
+					tagDto.setSeqno(rs.getString("seqno"));
 					tagList.add(tagDto);
 				}
 				mainRC.get(i).setTag(tagList);

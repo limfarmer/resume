@@ -19,7 +19,7 @@
 			<div class="row">
 			<form id="search" class="col-9" method="get" action ="search_new" >
 				<fieldset class="field-container">
-					<input type="text" placeholder="Search..." class="field" name ="keyword" value = "${key}" />
+					<input type="text" placeholder="Search..." class="field" name ="artKeyword" value = "${key}" />
 					<div class="icons-container">
 						<div class="icon-search"></div>
 						<div class="icon-close">

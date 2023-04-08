@@ -5,6 +5,7 @@
 <head>
 <%@ include file="head.jsp" %>
 <title>메인</title>
+
 </head>
 <body onload="init()">
 

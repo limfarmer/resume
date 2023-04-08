@@ -62,7 +62,7 @@
 		group by u.id,  r.wdate, r.art_seqno ,a.name, a.link_address, a.detail, a.avg_rating
 		order by r.wdate desc
 	</select>
-	
+	<!-- 메인페이지 태그 눌렀을때 작품목록 불러오는 구문 -->
 	<select id ="clickTag" resultType="Artwork">
 		select i.name ,i.seqno , i.author , i.admit , i.tag_name , i.tag_seqno , i.platform , i.rest , i.week , i.detail, i.url , i.avg_rating,
 			   i.cnt, i.image_route, i.link_address,a.genre ,a.tags
@@ -72,7 +72,7 @@
                 listagg(genre, '# ') within group(order by name) as genre
 	            FROM v_art_info_tag
 	            group by name) a
-		where  tag_seqno = #{seqno} and a.name =i.name
+		where  tag_seqno = #{tag} and a.name =i.name
 		group  by i.name ,i.seqno , i.author , i.admit , i.tag_name , i.tag_seqno , i.platform , i.rest , i.week , i.detail, i.url , i.avg_rating,
 			   i.cnt, i.image_route, i.link_address ,a.genre,a.tags
                

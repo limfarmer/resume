@@ -46,6 +46,6 @@ public interface ArtworkService {
 
 	public List<Artwork> myPageArtWdate(String id);
 
-	public List<Artwork> clickTag(String keyword);
+	public List<Artwork> clickTag(String tag);
 	
 }

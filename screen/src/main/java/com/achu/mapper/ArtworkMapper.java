@@ -24,6 +24,6 @@ public interface ArtworkMapper {
 
 	public List<Artwork> myPageArtWdate(@Param("id") String id);
 
-	public List<Artwork> clickTag(@Param("seqno")String keyword);
+	public List<Artwork> clickTag(@Param("tag")String tag);
 	
 }

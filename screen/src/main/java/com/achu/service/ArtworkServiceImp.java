@@ -146,8 +146,9 @@ public class ArtworkServiceImp implements ArtworkService {
 		return artworkMapper.myPageArtWdate(id);
 	}
 	@Override
-	public List<Artwork> clickTag(String keyword) {
-		return artworkMapper.clickTag(keyword);
+	public List<Artwork> clickTag(String tag) {
+		System.out.println("clickTag 실행");
+		return artworkMapper.clickTag(tag);
 	}
 	
 }

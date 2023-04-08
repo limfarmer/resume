@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<% String searchQuery = request.getParameter("searchQuery"); %>
 
 
 <!-- 장르 드롭다운 -->
@@ -143,13 +142,12 @@
  -->
 <!-- 태그 -->
 <div class="row">
-	<div class="col-2 d-flex justify-content-center	">태그</div>
+	<div class="col-2 d-flex justify-content-center	"></div>
 	<div class="col-10 d-flex flex-row justify-content-left" >
 		<div class="tableFootStyle" id="result" >
 		</div>
 	</div>
 </div>
-
 <!-- 검색창 -->
 <div id="detailSearchBar">
 <c:set value="${keyword}" var="key"/>
@@ -160,6 +158,13 @@
 		</div>
 	</nav>
 </div>  
+<!-- 쿠키값 -->
+<c:set var="tag" value="${param.tag}" />
+<c:if test="${not empty cookie.clickedTag}">
+	<div id="tagTest">
+		<input class="testT"  name="tagtestName" style='display:none' value = "${tag}">
+	</div>
+</c:if>
 
 <!-- 검색결과창 -->
 	 <div class= "searchPop">
@@ -170,47 +175,45 @@
 <div class= "searchBoard">
 		<c:forEach items="${artList}" var="artlist">
 	<div id ="searchResult">	
-	<div class="row">
-		<%-- <c:if test="${!artlist.imageRoute}"> --%>
-			<div class="col" id="artResult">
-				<div onclick="location.href='/artDetail/detail?seqno=${artlist.seqno}'">
-					<div class="image"><img src="${artlist.linkAddress}"></div>
-					<div class="webtoonName">${artlist.name}</div>
+		<%-- <div class="row">
+				<div class="col" id="artResult">
+					<div onclick="location.href='/artDetail/detail?seqno=${artlist.seqno}'">
+						<div class="image"><img src="${artlist.linkAddress}"></div>
+						<div class="webtoonName">${artlist.name}</div>
+					</div>
 				</div>
-			</div>
-			<div class="col">
-				<div class ="authorDetail">
-					<span>작가:</span>${artlist.author}
+				<div class="col">
+					<div class ="authorDetail">
+						<span>작가:</span>${artlist.author}
+					</div>
+					<div class ="platformDetail">
+						<span>연재처:${artlist.platform }</span>
+					</div>
+					<div class ="webtoonDetail">
+					${artlist.detail}
+					</div>
+					<div class ="genruDetail">
+								<span>장르:</span>
+						<c:forEach items="${artlist.tag}" var="midTag"  end="0" >
+							${midTag.mid}
+						</c:forEach>
+					</div>
+					<div class ="webtoonHashtag">
+						<c:forEach items="${artlist.tag}" var="artTags">
+							#<a href="#">${artTags.name} </a>
+						</c:forEach>
+					</div>
 				</div>
-				<div class ="platformDetail">
-					<span>연재처:${artlist.platform }</span>
-				</div>
-				<div class ="webtoonDetail">
-				${artlist.detail}
-				</div>
-				<div class ="genruDetail">
-							<span>장르:</span>
-					<c:forEach items="${artlist.tag}" var="midTag"  end="0" >
-						${midTag.mid}
-					</c:forEach>
-				</div>
-				<div class ="webtoonHashtag">
-					<c:forEach items="${artlist.tag}" var="artTags">
-						#<a href="#">${artTags.name} </a>
-					</c:forEach>
-				</div>
-			</div>
-			<div class="col">
-				<div class="star">
-					<h4>별점</h4>
-					<h2>${artlist.avgRating} /5.0</h2>
-					<!-- <div>★★★★★</div> -->
-				</div>
-			</div>
-			</div>
+				<div class="col">
+					<div class="star">
+						<h4>별점</h4>
+						<h2>${artlist.avgRating} /5.0</h2>
+						<!-- <div>★★★★★</div> -->
+					</div>
+				</div> 
+		</div>--%>
 	</div>
 	</c:forEach> 
-</div>
 </div>
 <script type="text/javascript" src="/js/searchDetail.js"></script>
 <script>
@@ -219,49 +222,16 @@ var searchField = $("#detailSearchBar");
 var searchBoard = $(".searchBoard");
 var key = $(".form-control");
 var tagResult = $("#result");
-
-var searchQuery = '<%= searchQuery %>';
-
-console.log('key값 form-control : ', key.val());
- var keywordv = searchField.find("input[name='searchBar']"); 
- 		if(key != null){
-		       showList(key);	
- 		};
-		$("#searchSubmit").on("click",function(key){
-			       showList(keywordv);
-		     });
-		function showList(keyword){
-			searchService.getList(keyword.val(),function(list){
-				var str = "";
-				console.log("겟리스트 시작", keyword.val()); 
-				if(list == null || list.length==0){
-					$(".searchBoard").html("검색 결과가 없습니다");
-					return;
-					} 
-				for(var i = 0, len=list.length || 0; i<len; i++){
-					str+="<div id='searchResult'> <div class='row'>"
-					str+="<div class='col' id='artResult'>"
-					str+="<div class='image'><img src='"+ list[i].linkAddress +"'></div>"
-					str+="<div class='webtoonName'>"+ list[i].name +"</div></div>"
-					str+="<div class='col'><div class ='authorDetail'>"
-					str+="<span>작가:</span>"+ list[i].author +"</div>"
-					str+="<div class ='platformDetail'><span>연재처:</span>"+list[i].platform+"</div>"
-					str+="<div class ='webtoonDetail'>"+list[i].detail+"</div>"
-					str+="<div class ='genruDetail'><span>장르:#"+list[i].genre+"</span></div>"
-					str+="<div class ='webtoonHashtag'>#<a href='#'>"+list[i].tags+" </a></div></div>"
-					str+="<div class='col'><div class='star'>"
-					str+="<h4>별점</h4> <h2>"+list[i].avgRating+"/5.0</h2> <div>★★★★★</div></div></div>"
-					str += "</div></div>" 
-				} 
-				$(".searchBoard").html(str);
-			}) 
-		};
-		/* input태그 엔터키입력시 검색결과 나오게 input태그에 keyup이벤트 걸어줌 */
-		 $("input").on("keyup",function(key){
-	         if(key.keyCode==13) {
-		       showList(keywordv);	
-	         }    
-	     });  
+var keywordv = searchField.find("input[name='searchBar']"); 
+var tagTest = $("#tagTest");
+var tagv = tagTest.find("input[name='tagtestName']"); 
+ 		
+	/* input태그 엔터키입력시 검색결과 나오게 input태그에 keyup이벤트 걸어줌 */
+	 $("input").on("keyup",function(key){
+         if(key.keyCode==13) {
+	       showList(keywordv);	
+         }    
+     });  
 		
 	/* 태그 누를때 */
 	$('.dropdown-item').on('click',function(e){
@@ -296,5 +266,99 @@ console.log('key값 form-control : ', key.val());
 			});
 		};
 	
+		
+		
+		
+		
+		$("#searchSubmit").on("click",function(key){
+			       showList(keywordv);
+		     });
+		if(key != null){
+			       showList(key);	
+ 		};
+		
+		/* 리스트 */
+		function showList(keyword){
+			searchService.getList(keyword.val(),function(list){
+				var str = "";
+				console.log("겟리스트 시작", keyword.val()); 
+				if(list == null || list.length==0){
+					$(".searchBoard").html("검색 결과가 없습니다");
+					return;
+					} 
+				for(var i = 0, len=list.length || 0; i<len; i++){
+					str+="<div id='searchResult'> <div class='row'>"
+					str+="<div class='col' id='artResult'>"
+					str+="<div class='image'><img src='"+ list[i].linkAddress +"'></div>"
+					str+="<div class='webtoonName'>"+ list[i].name +"</div></div>"
+					str+="<div class='col'><div class ='authorDetail'>"
+					str+="<span>작가:</span>"+ list[i].author +"</div>"
+					str+="<div class ='platformDetail'><span>연재처:</span>"+list[i].platform+"</div>"
+					str+="<div class ='webtoonDetail'>"+list[i].detail+"</div>"
+					str+="<div class ='genruDetail'><span>장르:#"+list[i].genre+"</span></div>"
+					str+="<div class ='webtoonHashtag'>#<a href='#'>"+list[i].tags+" </a></div></div>"
+					str+="<div class='col'><div class='star'>"
+					str+="<h4>별점</h4> <h2>"+list[i].avgRating+"/5.0</h2> <div>★★★★★</div></div></div>"
+					str += "</div></div>" 
+				} 
+				$(".searchBoard").html(str);
+			}) 
+		};
+		
+
+		var queryString = window.location.search;
+		var params = new URLSearchParams(queryString);
+		var tagSeqno = params.get('seqno');
+		var tagVal = <%=request.getParameter("tag")%>;
+		console.log("tagSeq", tagVal);
+		
+
+		/* 쿠키로 태그값 가져오기 */
+		/* var clickedTag = null;
+		const cookies = document.cookie.split(";");
+		document.cookie = "clickedTag=myTagValue; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+		for (let i = 0; i < cookies.length; i++) {
+			console.log('tagv test for문');
+		  const cookie = cookies[i].split("=");
+		  if (cookie[0] === "clickedTag") {
+		    clickedTag = cookie[1];
+		    break;
+		  }
+		}; */
+		
+		/* 쿠키를 활용한 리스트출력 */
+		<%-- if (clickedTag !== null) {
+			var clickedTag = '<%= request.getAttribute("clickedTag") %>';
+			  if (clickedTag) {
+				  function mainTotagList(tag){
+						searchService.getTag(tag.val(),function(list){
+							var str = " ";
+							 if(list == null || list.length==0){
+								$(".searchBoard").html("검색 결과가 없습니다");
+								return;
+								}  
+							 console.log('tag리스트 길이',list.length);
+							for(var i = 0, len=list.length || 0; i<len; i++){
+								str+="<div id='searchResult'> <div class='row'>"
+								str+="<div class='col' id='artResult'>"
+								str+="<div class='image'><img src='"+ list[i].linkAddress +"'></div>"
+								str+="<div class='webtoonName'>"+ list[i].name +"</div></div>"
+								str+="<div class='col'><div class ='authorDetail'>"
+								str+="<span>작가:</span>"+ list[i].author +"</div>"
+								str+="<div class ='platformDetail'><span>연재처:</span>"+list[i].platform+"</div>"
+								str+="<div class ='webtoonDetail'>"+list[i].detail+"</div>"
+								str+="<div class ='genruDetail'><span>장르:#"+list[i].genre+"</span></div>"
+								str+="<div class ='webtoonHashtag'>#<a href='#'>"+list[i].tags+" </a></div></div>"
+								str+="<div class='col'><div class='star'>"
+								str+="<h4>별점</h4> <h2>"+list[i].avgRating+"/5.0</h2> <div>★★★★★</div></div></div>"
+								str += "</div></div>" 
+							} 
+							$(".searchBoard").html(str);
+						});
+					};
+					mainTotagList(tagv);
+					
+			  };
+		 }; --%>
 });
 </script>

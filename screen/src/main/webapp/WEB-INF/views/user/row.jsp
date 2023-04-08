@@ -62,7 +62,7 @@
 								<a class="tag" href="search_new">${maintag.name}</a>
 							</c:forEach> --%>
 							<c:forEach items="${mainchu.tag}" var="maintag">
-								<a class="tag" href="search_new?keyword=${maintag.seqno}">${maintag.name}</a>
+								<a class="tag" href="search_new?tag=${maintag.seqno}">${maintag.name}</a>
 							</c:forEach>
 						</div>
 					</div>
@@ -118,3 +118,9 @@
 	</c:forEach>
 </div>
 </div>
+<script>
+$('.tag').click(function() {
+    var tagName = $(this).text();
+    document.cookie = "clickedTag=" + tagName;
+  });
+</script>
