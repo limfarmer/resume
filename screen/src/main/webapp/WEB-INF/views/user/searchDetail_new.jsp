@@ -159,12 +159,12 @@
 	</nav>
 </div>  
 <!-- 쿠키값 -->
-<c:set var="tag" value="${param.tag}" />
+<%-- <c:set var="tag" value="${param.tag}" />
 <c:if test="${not empty cookie.clickedTag}">
 	<div id="tagTest">
 		<input class="testT"  name="tagtestName" style='display:none' value = "${tag}">
 	</div>
-</c:if>
+</c:if> --%>
 
 <!-- 검색결과창 -->
 	 <div class= "searchPop">
@@ -304,7 +304,34 @@ var tagv = tagTest.find("input[name='tagtestName']");
 				$(".searchBoard").html(str);
 			}) 
 		};
-		
+		function mainTotagList(mainTag){
+			 console.log('실험 시작');
+			searchService.getTag(mainTag,function(list){
+				console.log('실험 시작 2');
+				var str = " ";
+				 if(list == null || list.length==0){
+					$(".searchBoard").html("검색 결과가 없습니다");
+					return;
+					}  
+				 console.log('tag리스트 길이',list.length);
+				for(var i = 0, len=list.length || 0; i<len; i++){
+					str+="<div id='searchResult'> <div class='row'>"
+					str+="<div class='col' id='artResult'>"
+					str+="<div class='image'><img src='"+ list[i].linkAddress +"'></div>"
+					str+="<div class='webtoonName'>"+ list[i].name +"</div></div>"
+					str+="<div class='col'><div class ='authorDetail'>"
+					str+="<span>작가:</span>"+ list[i].author +"</div>"
+					str+="<div class ='platformDetail'><span>연재처:</span>"+list[i].platform+"</div>"
+					str+="<div class ='webtoonDetail'>"+list[i].detail+"</div>"
+					str+="<div class ='genruDetail'><span>장르:#"+list[i].genre+"</span></div>"
+					str+="<div class ='webtoonHashtag'>#<a href='#'>"+list[i].tags+" </a></div></div>"
+					str+="<div class='col'><div class='star'>"
+					str+="<h4>별점</h4> <h2>"+list[i].avgRating+"/5.0</h2> <div>★★★★★</div></div></div>"
+					str += "</div></div>" 
+				} 
+				$(".searchBoard").html(str);
+			});
+		};
 
 		var queryString = window.location.search;
 		var params = new URLSearchParams(queryString);
@@ -312,7 +339,10 @@ var tagv = tagTest.find("input[name='tagtestName']");
 		var tagVal = <%=request.getParameter("tag")%>;
 		console.log("tagSeq", tagVal);
 		
-
+		if(tagVal !== null){
+			mainTotagList(tagVal);
+			console.log("실행");
+	  };
 		/* 쿠키로 태그값 가져오기 */
 		/* var clickedTag = null;
 		const cookies = document.cookie.split(";");
